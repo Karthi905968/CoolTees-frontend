@@ -26,12 +26,13 @@ nav {
   position:sticky;
   top: 0;
   z-index: 10;
-  background-color: #9ebabe;
+  background-color: #ffffff;
+  box-shadow: 0 0px 8px rgb(0 0 0 / 25%);
 }
 
 .nav-sec {
   height: 100%;
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -61,6 +62,7 @@ width: 10rem;
 .nav-ol li a{
   color: black;
   text-decoration: none;
+  font-size: 2.5rem;
 }
 
 .menu-bar{
@@ -146,33 +148,26 @@ width: 10rem;
 }
 
 .b-para{
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .price{
   font-size: 1.8rem;
 }
 
-.b-button{
+.b-button,.b-button.remove{
   background-color: #59AF0F;
   border: none;
   color: white;
   padding:0.8rem;
   font-size: 1.6rem;
+  cursor: pointer;
 }
 
-.heart{
-  position: absolute;
-  top: 3%;
-  right: 3%;
-  height: 4rem;
-  width: 4rem;
-  border: 1px solid white;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-size: 2.5rem;
+.b-button.remove{
+  background-color: red;
 }
+  
 footer{
   height: auto;
   width: 100%;
@@ -210,29 +205,33 @@ footer{
 
 /* CART SECTION */
 
+.cart-sec1{
+  min-height: 60vh;
+}
+
 .WL-sec1{
   border-bottom: 1px solid #E5E5E5;
 }
 
 .wishlist{
-  height: 7rem;
-  width: 90%;
+  height: 4rem;
   margin: 0 auto;
   font-size: 1.8rem;
   display: flex;
   place-items: end;
+  padding-left: 1rem;
 }
 
-.wishlist-tabel{
-  width: 90%;
+.wishlist-table{
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .wishlist-tabel th{
   color: #C1C1C1;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
@@ -248,27 +247,28 @@ footer{
 .WL-sec{
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 50%;
   justify-content: space-between;
 }
 
 .WL-img{
   border: 1px solid #707070;
   border-radius: 50%;
-  height: 6.5rem;
-  width: 6.5rem;
+  height: 7rem;
+  width: 7rem;
   display: grid;
   place-items: center;
 }
 
 
 .wishlist-img{
-  width: 4.8rem;
+  width: 4.4rem;
 }
 
 .W-content{
   font-size: 1.8rem;
   font-weight: 500;
+  text-align: left;
 }
 
 .W-id{
@@ -294,7 +294,13 @@ footer{
 .Wl-buttons{
   background-color: transparent;
   border: none;
-  font-size: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.WL-buttons{
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .check-out{
@@ -317,12 +323,24 @@ footer{
 
 .check-out-btn{
   height: 4rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   width: 15rem;
   border: 1px solid #D8D8D8; 
   display: grid;
   place-items: center;
   border-radius: 20rem;
+  cursor: pointer;
+  transition: .2s linear;
+}
+
+.cart-empty{
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+
+.check-out-btn:hover{
+  background-color: #D8D8D8;
 }
 
 .check-out-btn.next-btn{
@@ -351,7 +369,7 @@ footer{
 .shipment-table{
   width: 100%;
   padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .shipment-info{
@@ -370,8 +388,12 @@ footer{
   border-radius: 20rem;
 }
 
+.clear1{
+  cursor: pointer;
+}
+
 .shipment-total{
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 
 .address-line1{
@@ -406,6 +428,7 @@ footer{
   background-color: #461DE6;
   border-radius: 20rem;
   border: none;
+  cursor: pointer;
 }
 
 .order-info{
@@ -415,7 +438,7 @@ footer{
   text-align: center;
   display: grid;
   place-items: center;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
 }
 
 .back-home{
@@ -430,16 +453,22 @@ footer{
   border: none;
   background-color: #461DE6;
   color: white;font-size: 1.8rem;
+  cursor: pointer;
 
 }
 
 .login-page,.logout-page{
-  padding: 3rem;
+  padding: 3rem 0;
   overflow: hidden;
-  background-color: whitesmoke;
   display: grid;
   place-items: center;
-  border-bottom:1px solid rgb(243, 243, 243);
+  position: fixed;
+  top: 0;
+  z-index: 90;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 50%);
+  
 }
 
 .login-form,.logout-form{
@@ -611,11 +640,6 @@ footer{
     width: auto;
   }
 
-  .amount-sec{
-    width: 8rem;
-    height: 1rem;
-  }
-
   .check-out{
     align-items: start;
     flex-direction: column;
@@ -632,8 +656,8 @@ footer{
   }
 
   .check-out-btn{
-    height: 7rem;
-    width: 35rem;
+    height: 6rem;
+    width: 25rem;
     font-size: 2rem;
     margin-top: 3rem;
   }
@@ -650,17 +674,20 @@ footer{
   }
 
   .order-info{
-    width: 90%;
+    width: 65%;
   }
 
-
+.amount-sec{
+  height: 3rem;
+  width: 13rem;
+}
 
 
 }
 
 @media screen and (min-width:381px) and (max-width: 530px) and (min-height:700px){
   html {
-    font-size: 45%;
+    font-size: 50%;
   }
 
   /* .logo-CT {
@@ -690,7 +717,7 @@ footer{
 
   .cGroup{
     height: 38rem;
-    width: 45%;
+    width: 44%;
   }
 
 
@@ -707,7 +734,7 @@ footer{
   }
 
   .WL-sec{
-    width: 85%;
+    width: 100%;
   }
 
   .clear1{
@@ -719,8 +746,8 @@ footer{
   }
 
   .amount-sec{
-    height:1rem ;
-    width: 8rem;
+    height: 2.5rem;
+    width: 10rem;
   }
 
   
@@ -742,8 +769,8 @@ footer{
 
   .check-out-btn{
     margin-top: 3rem;
-    height: 7rem;
-    width: 35rem;
+    height: 6rem;
+    width: 22rem;
     font-size: 2rem;
   }
 
@@ -759,7 +786,7 @@ footer{
   }
 
   .order-info{
-    width: 90%;
+    width: 70%;
   }
 
  

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { API } from '../Api';
@@ -8,7 +8,8 @@ export const SignIn = () => {
     const[email,setEmail]=useState()
     const[password,setPassword]=useState()
     const [toggle,setToggle] = useState(false)
-    const[token,setToken]=useState('')
+    const[keepSignIn,setKeepSignIn]=useState(false)
+    console.log(keepSignIn);
 
     const handleSubmit= async (e)=> {
      e.preventDefault()
@@ -19,7 +20,6 @@ export const SignIn = () => {
 
      try{
       const userData = await API.post('users/signin/',payload)
-      console.log(userData.data.token);
       localStorage.setItem('token',userData.data.token)
       
       alert('Logged In Successfully')
@@ -53,7 +53,7 @@ export const SignIn = () => {
           <i className="fa fa-times" aria-hidden="true"></i>
         </section>
         <p className="form-p" style={{ fontWeight: 'bold' }}> Login </p>
-        <p className="form-p1">COOL TEES</p>
+        <p className="form-p1"> Login to shop for cool T-shirt</p>
         <div className="className-input">
           <input type="email" className="form-input" placeholder="Email" required onChange={(e)=>setEmail(e.target.value)}/>
         </div>
@@ -71,7 +71,7 @@ export const SignIn = () => {
         <div className="className-input">
           <main className="form-check1">
             <span className="check-box">
-              <input type="checkbox" style={{ height: '2rem', width: '2rem' }} />
+              <input type="checkbox" style={{ height: '2rem', width: '2rem' }} onClick={()=>setKeepSignIn(true)}/>
               <span style={{ marginLeft: '.5rem' }}>Keep me signed in</span>
             </span>
             <p style={{ fontSize: '1.5rem', color: '#808080' }}>Forget Password?</p>

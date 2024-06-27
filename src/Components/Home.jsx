@@ -4,21 +4,24 @@ import { AxiosHeaders } from 'axios';
 import {useDispatch} from 'react-redux'
 import { listItems } from '../redux/items/ItemReducer';
 import Products from './Products';
+import { Outlet } from 'react-router-dom';
 
 
 const Home = () => {
     const dispatch=useDispatch()
-    const fetchItems = async ()=>{
-       const items = await API.get('items/',AxiosHeaders)
-       dispatch(listItems(items.data))
-    }
+  
 
     useEffect(()=>{
+      const fetchItems = async ()=>{
+        const items = await API.get('items/',AxiosHeaders)
+        dispatch(listItems(items.data))
+     }
         fetchItems()
-    },[])
+    },[dispatch])
 
   return (
     <>
+    <Outlet/>
       <div className="section1">
         <img
           src="https://res.cloudinary.com/denmnkoks/image/upload/v1711008746/Screenshot_2024-03-21_at_1.41.53_PM-removebg-preview_kquv5m.png"
