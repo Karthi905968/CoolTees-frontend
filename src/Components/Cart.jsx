@@ -5,7 +5,7 @@ import CartItem from './CartItem';
 import { API } from '../Api';
 import { AxiosHeaders } from 'axios';
 import { addSubTotal } from '../redux/cart/cartReducer';
-import { Link } from 'react-router-dom';
+
 
 
 function Cart() {
@@ -27,6 +27,10 @@ cart_item.forEach((cart)=>{
  const particular_product = all_product && all_product.filter(product=>product.id === cart.items)
  subTotal += particular_product  && particular_product[0].price * cart.quantity
 })
+
+const nextStep=()=>{
+  navigate('/shipping')
+}
 
 
 
@@ -71,14 +75,14 @@ cart_item.forEach((cart)=>{
                 <div className="check-out-btn shopping-btn" onClick={() => navigate('/')}>
                   Continue Shopping
                 </div>
-                <div className="check-out-btn next-btn" onClick={()=>window.location.assign('/shipping')}>Next Step</div>
+                <div className="check-out-btn next-btn" onClick={()=>nextStep()}>Next Step</div>
               </div>
             </div>
           </>
         ) : (
         <>
           <h3 className='cart-empty'>Cart is Empty</h3>
-          <div className="check-out-btn shopping-btn" onClick={() => navigate('/')} style={{'margin':'0 auto'}}>
+          <div className="check-out-btn shopping-btn" onClick={() => {navigate('/')}} style={{'margin':'0 auto'}}>
                   Continue Shopping
           </div>
         </>

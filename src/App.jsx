@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React from 'react'
 import {BrowserRouter as Router , Routes , Route} from 'react-router-dom'
 import './App.css'
 import Header from './Components/Header'
@@ -11,15 +11,6 @@ import Shipping from './Components/Shipping'
 import Thankyou from './Components/Thankyou'
 const App = () => {
 
-  const [showFooter, setShowFooter] = useState(true);
-  const pageUrl = window.location.href;
-  useEffect(() => {
-    if (pageUrl.includes('shipping') || pageUrl.includes('thankyou')) {
-      setShowFooter(false);
-    } else {
-      setShowFooter(true);
-    }
-  },[pageUrl,showFooter]);
 
   return (
     <Router>
@@ -33,7 +24,7 @@ const App = () => {
             <Route path='/shipping' element={<Shipping/>}/>
             <Route path='/thankyou' element={<Thankyou/>}/>
         </Routes>
-        {showFooter && <Footer/>}
+       <Footer/>
     </Router>
   )
 }

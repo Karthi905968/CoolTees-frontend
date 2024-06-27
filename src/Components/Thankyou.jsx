@@ -24,7 +24,7 @@ const Thankyou = () => {
     },[token])
 
   return (
-    <>
+    <div style={{'minHeight':'60vh'}}>
      <main class="order">Thank you for Ordering</main>
     <main class="order-info">
     Thank you for ordering {userName}. <br />We received your request.{' '}
@@ -37,7 +37,7 @@ const Thankyou = () => {
             BACK TO HOME 
         </button>
     </main>
-    </>
+    </div>
   )
 }
 
