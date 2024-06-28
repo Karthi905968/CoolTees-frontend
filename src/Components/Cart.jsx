@@ -29,7 +29,7 @@ cart_item.forEach((cart)=>{
 })
 
 const nextStep=()=>{
-  navigate('/shipping')
+  window.location.assign('/shipping')
 }
 
 

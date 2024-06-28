@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Footer = () => {
 
+  const[showFooter,setShowFooter]=useState(true)
+  const pageURL = window.location.href
+
+  useEffect(()=>{
+    if (pageURL.includes('shipping') || pageURL.includes('thankyou')) {
+      setShowFooter(false);
+  }
+  },[pageURL,showFooter])
 
 
 
   return (
     <>
-          <footer>
+         {
+          showFooter &&  (<footer>
           <img
             src="https://res.cloudinary.com/denmnkoks/image/upload/v1711443436/cooltees-logo_aschuy.png"
             alt=""
@@ -25,7 +34,8 @@ const Footer = () => {
           <div className="f-rights">
             DESIGN BY COOLTEES - © 2022. ALL RIGHTS RESERVED.
           </div>
-        </footer>
+        </footer>)
+         }
 
     </>
   );

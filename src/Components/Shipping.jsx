@@ -3,7 +3,7 @@ import {useSelector } from 'react-redux';
 import { API } from '../Api';
 import { AxiosHeaders } from 'axios';
 import ShippingItem from './ShippingItem';
-import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -11,7 +11,6 @@ function Shipping() {
   const cart_item = useSelector((state) => state.carts.cart);
   const [all_product,setProduct]=useState()
   const token = localStorage.getItem('token') 
-  const navigate=useNavigate()
   const [full_name, setFullName] = useState(''),
   [phone, setPhone] = useState(''),
   [address, setAddress] = useState(''),
@@ -58,7 +57,7 @@ const handleorder= async (e)=>{
           Authorization: `${token}`, // Correctly interpolate the token
         },
       })
-      navigate('/thankyou')
+      window.location.assign('/thankyou')
     }catch(err){
         alert(err)
         console.log(err);
